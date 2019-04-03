@@ -30,24 +30,50 @@ let PaddleCategoryName = "paddle"
 let BlockCategoryName = "block"
 let GameMessageName = "gameMessage"
 
+let BallCategory   : UInt32 = 0x1 << 0
+let BottomCategory : UInt32 = 0x1 << 1
+let BlockCategory  : UInt32 = 0x1 << 2
+let PaddleCategory : UInt32 = 0x1 << 3
+let BorderCategory : UInt32 = 0x1 << 4
 
-class GameScene: SKScene {
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
     var isFingerOnPaddle = false
-    
-    
+
    
-  override func didMove(to view: SKView) {
+  override func didMove(to view: SKView)
+  {
     super.didMove(to: view)
+    
     let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
     borderBody.friction = 0
     self.physicsBody = borderBody
     
     physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
+    physicsWorld.contactDelegate = self
     
     let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
     ball.physicsBody!.applyImpulse(CGVector(dx: 2.0, dy: -2.0))
-  }
     
+    let bottomRect = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: 1)
+    let bottom = SKNode()
+    
+    bottom.physicsBody = SKPhysicsBody(edgeLoopFrom: bottomRect)
+    addChild(bottom)
+    
+    //set up categoryBitMasks
+    let paddle = childNode(withName: PaddleCategoryName) as! SKSpriteNode
+    
+    bottom.physicsBody!.categoryBitMask = BottomCategory
+    ball.physicsBody!.categoryBitMask = BallCategory
+    paddle.physicsBody!.categoryBitMask = PaddleCategory
+    borderBody.categoryBitMask = BorderCategory
+    //contactBitMask
+    ball.physicsBody!.contactTestBitMask = BottomCategory
+    
+  }
+
+    //Touching Paddle func
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         let touch = touches.first
@@ -76,6 +102,7 @@ class GameScene: SKScene {
             var paddleX = paddle.position.x + (touchLocation.x - previousLocation.x)
               
             paddleX = max(paddleX, paddle.size.width/2)
+            paddleX = min(paddleX, size.width - paddle.size.width/2)
           
             paddle.position = CGPoint(x: paddleX, y: paddle.position.y)
         }
@@ -86,6 +113,27 @@ class GameScene: SKScene {
     {
         isFingerOnPaddle = false
     }
-  
+    
+    //Contact func
+    func didBegin(_ contact: SKPhysicsContact)
+    {
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask
+        {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else
+        {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BottomCategory
+        {
+            print("Hit bottom. First contact has been made.")
+        }
+    }
+    
   
 }
