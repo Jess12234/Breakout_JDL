@@ -24,6 +24,8 @@
  */ 
 
 import SpriteKit
+import GameplayKit
+
 
 let BallCategoryName = "ball"
 let PaddleCategoryName = "paddle"
@@ -37,10 +39,35 @@ let PaddleCategory : UInt32 = 0x1 << 3
 let BorderCategory : UInt32 = 0x1 << 4
 
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate{
     var isFingerOnPaddle = false
-
-   
+    
+    lazy var gameState: GKStateMachine = GKStateMachine(states: [
+        WaitingForTap(scene: self),
+        Playing(scene: self),
+        GameOver(scene: self)])
+    
+    var gameWon : Bool = false
+    {
+        didSet
+        {
+            let gameOver = childNode(withName: GameMessageName) as! SKSpriteNode
+            let textureName = gameWon ? "YouWon" : "GameOver"
+            let texture = SKTexture(imageNamed: textureName)
+            let actionSequence = SKAction.sequence([SKAction.setTexture(texture),SKAction.scale(to: 1.0, duration: 0.25)])
+            
+            gameOver.run(actionSequence)
+        }
+    }
+    
+    let blipSound = SKAction.playSoundFileNamed("pongblip", waitForCompletion: false)
+    let blipPaddleSound = SKAction.playSoundFileNamed("paddleBlip", waitForCompletion: false)
+    let bambooBreakSound = SKAction.playSoundFileNamed("BambooBreak", waitForCompletion: false)
+    let gameWonSound = SKAction.playSoundFileNamed("game-won", waitForCompletion: false)
+    let gameOverSound = SKAction.playSoundFileNamed("game-over", waitForCompletion: false)
+    
+    
+    
   override func didMove(to view: SKView)
   {
     super.didMove(to: view)
@@ -53,7 +80,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     physicsWorld.contactDelegate = self
     
     let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
-    ball.physicsBody!.applyImpulse(CGVector(dx: 2.0, dy: -2.0))
     
     let bottomRect = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: 1)
     let bottom = SKNode()
@@ -71,23 +97,84 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //contactBitMask
     ball.physicsBody!.contactTestBitMask = BottomCategory
     
+    let numberOfBlocks = 8
+    let blockWidth = SKSpriteNode(imageNamed: "block").size.width
+    let totalBlocksWidth = blockWidth * CGFloat(numberOfBlocks)
+   
+    let xOffset = (frame.width - totalBlocksWidth) / 2
+  
+    for i in 0..<numberOfBlocks
+    {
+        let block = SKSpriteNode(imageNamed: "block.png")
+        
+        block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i) + 0.5) * blockWidth,
+                                 y: frame.height * 0.8)
+        block.physicsBody = SKPhysicsBody(rectangleOf: block.frame.size)
+        block.physicsBody!.allowsRotation = false
+        block.physicsBody!.friction = 0.0
+        block.physicsBody!.affectedByGravity = false
+        block.physicsBody!.isDynamic = false
+        block.name = BlockCategoryName
+        block.physicsBody!.categoryBitMask = BlockCategory
+        block.zPosition = 2
+        addChild(block)
+    }
+    
+    ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory | BorderCategory | PaddleCategory
+    
+    let gameMessage = SKSpriteNode(imageNamed: "TapToPlay")
+    gameMessage.name = GameMessageName
+    gameMessage.position = CGPoint(x: frame.midX, y: frame.midY)
+    gameMessage.zPosition = 4
+    gameMessage.setScale(0.0)
+    addChild(gameMessage)
+    
+    gameState.enter(WaitingForTap.self)
+    
+    
   }
+    
+    func breakBlock(node: SKNode)
+    {
+        let particles = SKEmitterNode(fileNamed: "BrokenPlatform")!
+        
+        particles.position = node.position
+        particles.zPosition = 3
+        addChild(particles)
+        particles.run(SKAction.sequence([SKAction.wait(forDuration: 1.0),
+                                         SKAction.removeFromParent()]))
+        node.removeFromParent()
+    }
+    
 
     //Touching Paddle func
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        let touch = touches.first
-        let touchLocation = touch!.location(in: self)
-            
-        if let body = physicsWorld.body(at: touchLocation)
-        {
-            if body.node!.name == PaddleCategoryName
-        {
-            print("Began touch on paddle")
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        switch gameState.currentState {
+        case is WaitingForTap:
+            gameState.enter(Playing.self)
             isFingerOnPaddle = true
+            
+        case is Playing:
+            let touch = touches.first
+            let touchLocation = touch!.location(in: self)
+            
+            if let body = physicsWorld.body(at: touchLocation) {
+                if body.node!.name == PaddleCategoryName {
+                    isFingerOnPaddle = true
+                }
             }
+            
+        case is GameOver:
+            let newScene = GameScene(fileNamed:"GameScene")
+            newScene!.scaleMode = .aspectFit
+            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+            self.view?.presentScene(newScene!, transition: reveal)
+            
+        default:
+            break
         }
     }
+    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
     {
@@ -117,6 +204,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //Contact func
     func didBegin(_ contact: SKPhysicsContact)
     {
+        
+        if gameState.currentState is Playing {
+            // Previous code remains here...
+        } // Don't forget to close the 'if' statement at the end of the method.
+        
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
 
@@ -131,8 +223,51 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BottomCategory
         {
-            print("Hit bottom. First contact has been made.")
+            gameState.enter(GameOver.self)
+            gameWon = false
         }
+        
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BlockCategory
+        {
+            breakBlock(node: secondBody.node!)
+            
+            if isGameWon()
+            {
+                gameState.enter(GameOver.self)
+                gameWon = true
+            }
+        }
+        
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BorderCategory {
+            run(blipSound)
+        }
+        
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == PaddleCategory {
+            run(blipPaddleSound)
+        }
+        
+        
+    }
+    
+    func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat
+    {
+        let rand: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+        return (rand) * (to - from) + from
+    }
+    
+    override func update(_ currentTime: TimeInterval)
+    {
+        gameState.update(deltaTime: currentTime)
+    }
+    
+    
+    func isGameWon() -> Bool {
+        var numberOfBricks = 0
+        self.enumerateChildNodes(withName: BlockCategoryName) {
+            node, stop in
+            numberOfBricks = numberOfBricks + 1
+        }
+        return numberOfBricks == 0
     }
     
   
