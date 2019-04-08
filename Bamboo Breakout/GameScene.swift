@@ -56,6 +56,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let texture = SKTexture(imageNamed: textureName)
             let actionSequence = SKAction.sequence([SKAction.setTexture(texture),SKAction.scale(to: 1.0, duration: 0.25)])
             
+            run(gameWon ? gameWonSound : gameOverSound)
             gameOver.run(actionSequence)
         }
     }
@@ -80,6 +81,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     physicsWorld.contactDelegate = self
     
     let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
+    
+    let trailNode = SKNode()
+    trailNode.zPosition = 1
+    addChild(trailNode)
+    let trail = SKEmitterNode(fileNamed: "BallTrail")!
+    trail.targetNode = trailNode
+    ball.addChild(trail)
     
     let bottomRect = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: 1)
     let bottom = SKNode()
@@ -136,6 +144,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func breakBlock(node: SKNode)
     {
+         run(bambooBreakSound)
         let particles = SKEmitterNode(fileNamed: "BrokenPlatform")!
         
         particles.position = node.position
@@ -207,7 +216,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         if gameState.currentState is Playing {
             // Previous code remains here...
-        } // Don't forget to close the 'if' statement at the end of the method.
+         // Don't forget to close the 'if' statement at the end of the method.
         
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
@@ -245,7 +254,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == PaddleCategory {
             run(blipPaddleSound)
         }
-        
+        }
         
     }
     
