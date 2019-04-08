@@ -61,17 +61,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
     }
     
-    let blipSound = SKAction.playSoundFileNamed("pongblip", waitForCompletion: false)
-    let blipPaddleSound = SKAction.playSoundFileNamed("paddleBlip", waitForCompletion: false)
-    let bambooBreakSound = SKAction.playSoundFileNamed("BambooBreak", waitForCompletion: false)
-    let gameWonSound = SKAction.playSoundFileNamed("game-won", waitForCompletion: false)
-    let gameOverSound = SKAction.playSoundFileNamed("game-over", waitForCompletion: false)
+    let blipSound = SKAction.playSoundFileNamed("Sparkle", waitForCompletion: false)
+    let blipPaddleSound = SKAction.playSoundFileNamed("Hey", waitForCompletion: false)
+    let bambooBreakSound = SKAction.playSoundFileNamed("Rupee", waitForCompletion: false)
+    let gameWonSound = SKAction.playSoundFileNamed("Win", waitForCompletion: false)
+    let gameOverSound = SKAction.playSoundFileNamed("GameOver", waitForCompletion: false)
     
     
+    
+    var blockBroken = 0
+    var scoreLabel: SKLabelNode!
     
   override func didMove(to view: SKView)
   {
     super.didMove(to: view)
+    
+    
+    scoreLabel = SKLabelNode(fontNamed: "GurmukhiMN")
+    scoreLabel.text = "Score = \(blockBroken)"
+    scoreLabel.fontSize = 20
+    scoreLabel.fontColor = SKColor.white
+    scoreLabel.position = CGPoint(x: size.width * 0.2, y: size.height * 0.9)
+    scoreLabel.zPosition = 10
+    addChild(scoreLabel)
+    
     
     let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
     borderBody.friction = 0
@@ -105,7 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     //contactBitMask
     ball.physicsBody!.contactTestBitMask = BottomCategory
     
-    let numberOfBlocks = 8
+    let numberOfBlocks = 10
     let blockWidth = SKSpriteNode(imageNamed: "block").size.width
     let totalBlocksWidth = blockWidth * CGFloat(numberOfBlocks)
    
@@ -140,12 +153,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     gameState.enter(WaitingForTap.self)
     
     
+    let backgroundMusic = SKAudioNode(fileNamed: "Bgmusic.mp3")
+    backgroundMusic.autoplayLooped = true
+    addChild(backgroundMusic)
+    
   }
     
     func breakBlock(node: SKNode)
     {
          run(bambooBreakSound)
         let particles = SKEmitterNode(fileNamed: "BrokenPlatform")!
+        
+        blockBroken += 1
+        scoreLabel.text = "Score = \(blockBroken)"
         
         particles.position = node.position
         particles.zPosition = 3
@@ -233,6 +253,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BottomCategory
         {
             gameState.enter(GameOver.self)
+            blockBroken = 0
+            scoreLabel.text = "Score = \(blockBroken)"
             gameWon = false
         }
         

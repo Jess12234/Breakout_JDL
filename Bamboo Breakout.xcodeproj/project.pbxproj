@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29785A6A225C034800503602 /* Hey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29785A69225C034800503602 /* Hey.mp3 */; };
+		29785A6C225C034C00503602 /* Sparkle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29785A6B225C034C00503602 /* Sparkle.mp3 */; };
+		29785A6E225C03A900503602 /* Win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29785A6D225C03A900503602 /* Win.mp3 */; };
+		29785A72225C04E500503602 /* Rupee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29785A71225C04E500503602 /* Rupee.mp3 */; };
+		29785A74225C04E800503602 /* Bgmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29785A73225C04E800503602 /* Bgmusic.mp3 */; };
+		29785A76225C07EF00503602 /* GameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29785A75225C07EF00503602 /* GameOver.mp3 */; };
 		F577B38F1CB81F840005E827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B38E1CB81F840005E827 /* AppDelegate.swift */; };
 		F577B3911CB81F840005E827 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F577B3901CB81F840005E827 /* GameScene.sks */; };
 		F577B3931CB81F840005E827 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B3921CB81F840005E827 /* GameScene.swift */; };
@@ -17,16 +23,17 @@
 		F577B3A71CB8208A0005E827 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B3A41CB8208A0005E827 /* GameOver.swift */; };
 		F577B3A81CB8208A0005E827 /* Playing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B3A51CB8208A0005E827 /* Playing.swift */; };
 		F577B3A91CB8208A0005E827 /* WaitingForTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B3A61CB8208A0005E827 /* WaitingForTap.swift */; };
-		F577B3B71CB8210A0005E827 /* game-over.wav in Resources */ = {isa = PBXBuildFile; fileRef = F577B3B21CB8210A0005E827 /* game-over.wav */; };
-		F577B3B81CB8210A0005E827 /* game-won.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F577B3B31CB8210A0005E827 /* game-won.mp3 */; };
-		F577B3B91CB8210A0005E827 /* paddleBlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = F577B3B41CB8210A0005E827 /* paddleBlip.wav */; };
-		F577B3BA1CB8210A0005E827 /* pongblip.wav in Resources */ = {isa = PBXBuildFile; fileRef = F577B3B51CB8210A0005E827 /* pongblip.wav */; };
-		F597B1221CC1B1F000D398E0 /* BambooBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = F597B1211CC1B1F000D398E0 /* BambooBreak.wav */; };
 		F5B9A21F1CC1392A000D5BC7 /* BallTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5B9A21D1CC1392A000D5BC7 /* BallTrail.sks */; };
 		F5B9A2201CC1392A000D5BC7 /* BrokenPlatform.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5B9A21E1CC1392A000D5BC7 /* BrokenPlatform.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29785A69225C034800503602 /* Hey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Hey.mp3; path = "../../../Adobe/Premiere Pro/13.0/Hey.mp3"; sourceTree = "<group>"; };
+		29785A6B225C034C00503602 /* Sparkle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sparkle.mp3; path = "../../../Adobe/Premiere Pro/13.0/Sparkle.mp3"; sourceTree = "<group>"; };
+		29785A6D225C03A900503602 /* Win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Win.mp3; path = ../../../../Downloads/Win.mp3; sourceTree = "<group>"; };
+		29785A71225C04E500503602 /* Rupee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Rupee.mp3; path = "../../../Adobe/Premiere Pro/13.0/Rupee.mp3"; sourceTree = "<group>"; };
+		29785A73225C04E800503602 /* Bgmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Bgmusic.mp3; path = "../../../Adobe/Premiere Pro/13.0/Bgmusic.mp3"; sourceTree = "<group>"; };
+		29785A75225C07EF00503602 /* GameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = GameOver.mp3; path = "../../../Adobe/Premiere Pro/13.0/GameOver.mp3"; sourceTree = "<group>"; };
 		F577B38B1CB81F840005E827 /* Bamboo Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bamboo Breakout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F577B38E1CB81F840005E827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F577B3901CB81F840005E827 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -39,11 +46,6 @@
 		F577B3A41CB8208A0005E827 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
 		F577B3A51CB8208A0005E827 /* Playing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playing.swift; sourceTree = "<group>"; };
 		F577B3A61CB8208A0005E827 /* WaitingForTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForTap.swift; sourceTree = "<group>"; };
-		F577B3B21CB8210A0005E827 /* game-over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-over.wav"; sourceTree = "<group>"; };
-		F577B3B31CB8210A0005E827 /* game-won.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-won.mp3"; sourceTree = "<group>"; };
-		F577B3B41CB8210A0005E827 /* paddleBlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = paddleBlip.wav; sourceTree = "<group>"; };
-		F577B3B51CB8210A0005E827 /* pongblip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pongblip.wav; sourceTree = "<group>"; };
-		F597B1211CC1B1F000D398E0 /* BambooBreak.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BambooBreak.wav; sourceTree = "<group>"; };
 		F5B9A21D1CC1392A000D5BC7 /* BallTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BallTrail.sks; sourceTree = "<group>"; };
 		F5B9A21E1CC1392A000D5BC7 /* BrokenPlatform.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BrokenPlatform.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,11 +117,12 @@
 		F577B3B01CB8210A0005E827 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				F597B1211CC1B1F000D398E0 /* BambooBreak.wav */,
-				F577B3B21CB8210A0005E827 /* game-over.wav */,
-				F577B3B31CB8210A0005E827 /* game-won.mp3 */,
-				F577B3B41CB8210A0005E827 /* paddleBlip.wav */,
-				F577B3B51CB8210A0005E827 /* pongblip.wav */,
+				29785A73225C04E800503602 /* Bgmusic.mp3 */,
+				29785A71225C04E500503602 /* Rupee.mp3 */,
+				29785A6B225C034C00503602 /* Sparkle.mp3 */,
+				29785A69225C034800503602 /* Hey.mp3 */,
+				29785A6D225C03A900503602 /* Win.mp3 */,
+				29785A75225C07EF00503602 /* GameOver.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -184,15 +187,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F577B3911CB81F840005E827 /* GameScene.sks in Resources */,
+				29785A6C225C034C00503602 /* Sparkle.mp3 in Resources */,
+				29785A74225C04E800503602 /* Bgmusic.mp3 in Resources */,
 				F5B9A21F1CC1392A000D5BC7 /* BallTrail.sks in Resources */,
-				F577B3BA1CB8210A0005E827 /* pongblip.wav in Resources */,
-				F577B3B81CB8210A0005E827 /* game-won.mp3 in Resources */,
-				F597B1221CC1B1F000D398E0 /* BambooBreak.wav in Resources */,
+				29785A76225C07EF00503602 /* GameOver.mp3 in Resources */,
+				29785A6A225C034800503602 /* Hey.mp3 in Resources */,
 				F577B39D1CB81F840005E827 /* LaunchScreen.storyboard in Resources */,
-				F577B3B71CB8210A0005E827 /* game-over.wav in Resources */,
+				29785A72225C04E500503602 /* Rupee.mp3 in Resources */,
 				F577B39A1CB81F840005E827 /* Assets.xcassets in Resources */,
 				F5B9A2201CC1392A000D5BC7 /* BrokenPlatform.sks in Resources */,
-				F577B3B91CB8210A0005E827 /* paddleBlip.wav in Resources */,
+				29785A6E225C03A900503602 /* Win.mp3 in Resources */,
 				F577B3981CB81F840005E827 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
