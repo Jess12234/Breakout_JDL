@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "TapToPlay.png",
+      "filename" : "Screen Shot 2019-04-08 at 4.15.31 PM.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "TapToPlay@2x.png",
+      "filename" : "Screen Shot 2019-04-08 at 4.15.31 PM-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "TapToPlay@3x.png",
+      "filename" : "Screen Shot 2019-04-08 at 4.15.31 PM-2.png",
       "scale" : "3x"
     }
   ],
