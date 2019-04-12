@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		295A6E312260FCC600EA474B /* Bgmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E332260FCC600EA474B /* Bgmusic.mp3 */; };
-		295A6E342260FCD000EA474B /* Rupee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E362260FCD000EA474B /* Rupee.mp3 */; };
-		295A6E372260FCD400EA474B /* Sparkle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E392260FCD400EA474B /* Sparkle.mp3 */; };
-		295A6E3A2260FCE000EA474B /* Hey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E3C2260FCE000EA474B /* Hey.mp3 */; };
-		295A6E3D2260FCE400EA474B /* Win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E3F2260FCE400EA474B /* Win.mp3 */; };
-		295A6E402260FCE900EA474B /* GameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E422260FCE900EA474B /* GameOver.mp3 */; };
+		295A6E55226100AE00EA474B /* Bgmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E54226100AE00EA474B /* Bgmusic.mp3 */; };
+		295A6E57226100B300EA474B /* GameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E56226100B300EA474B /* GameOver.mp3 */; };
+		295A6E59226100B800EA474B /* Hey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E58226100B800EA474B /* Hey.mp3 */; };
+		295A6E5B226100BC00EA474B /* Rupee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E5A226100BC00EA474B /* Rupee.mp3 */; };
+		295A6E5D226100C200EA474B /* Sparkle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E5C226100C200EA474B /* Sparkle.mp3 */; };
+		295A6E632261018A00EA474B /* Win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 295A6E622261018A00EA474B /* Win.mp3 */; };
 		F577B38F1CB81F840005E827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B38E1CB81F840005E827 /* AppDelegate.swift */; };
 		F577B3911CB81F840005E827 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F577B3901CB81F840005E827 /* GameScene.sks */; };
 		F577B3931CB81F840005E827 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B3921CB81F840005E827 /* GameScene.swift */; };
@@ -28,18 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		295A6E322260FCC600EA474B /* en */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = en; path = en.lproj/Bgmusic.mp3; sourceTree = "<group>"; };
-		295A6E352260FCD000EA474B /* en */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = en; path = en.lproj/Rupee.mp3; sourceTree = "<group>"; };
-		295A6E382260FCD400EA474B /* en */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = en; path = en.lproj/Sparkle.mp3; sourceTree = "<group>"; };
-		295A6E3B2260FCE000EA474B /* en */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = en; path = en.lproj/Hey.mp3; sourceTree = "<group>"; };
-		295A6E3E2260FCE400EA474B /* en */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = en; path = en.lproj/Win.mp3; sourceTree = "<group>"; };
-		295A6E412260FCE900EA474B /* en */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = en; path = en.lproj/GameOver.mp3; sourceTree = "<group>"; };
-		295A6E432260FD0400EA474B /* Base */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Base; path = Base.lproj/GameOver.mp3; sourceTree = "<group>"; };
-		295A6E442260FD0700EA474B /* Base */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Base; path = Base.lproj/Bgmusic.mp3; sourceTree = "<group>"; };
-		295A6E452260FD0900EA474B /* Base */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Base; path = Base.lproj/Rupee.mp3; sourceTree = "<group>"; };
-		295A6E462260FD0B00EA474B /* Base */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Base; path = Base.lproj/Sparkle.mp3; sourceTree = "<group>"; };
-		295A6E472260FD0D00EA474B /* Base */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Base; path = Base.lproj/Hey.mp3; sourceTree = "<group>"; };
-		295A6E482260FD1200EA474B /* Base */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Base; path = Base.lproj/Win.mp3; sourceTree = "<group>"; };
+		295A6E54226100AE00EA474B /* Bgmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bgmusic.mp3; sourceTree = "<group>"; };
+		295A6E56226100B300EA474B /* GameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOver.mp3; sourceTree = "<group>"; };
+		295A6E58226100B800EA474B /* Hey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hey.mp3; sourceTree = "<group>"; };
+		295A6E5A226100BC00EA474B /* Rupee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rupee.mp3; sourceTree = "<group>"; };
+		295A6E5C226100C200EA474B /* Sparkle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sparkle.mp3; sourceTree = "<group>"; };
+		295A6E622261018A00EA474B /* Win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Win.mp3; sourceTree = "<group>"; };
 		F577B38B1CB81F840005E827 /* Bamboo Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bamboo Breakout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F577B38E1CB81F840005E827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F577B3901CB81F840005E827 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -123,12 +117,12 @@
 		F577B3B01CB8210A0005E827 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				295A6E332260FCC600EA474B /* Bgmusic.mp3 */,
-				295A6E362260FCD000EA474B /* Rupee.mp3 */,
-				295A6E392260FCD400EA474B /* Sparkle.mp3 */,
-				295A6E3C2260FCE000EA474B /* Hey.mp3 */,
-				295A6E3F2260FCE400EA474B /* Win.mp3 */,
-				295A6E422260FCE900EA474B /* GameOver.mp3 */,
+				295A6E622261018A00EA474B /* Win.mp3 */,
+				295A6E5C226100C200EA474B /* Sparkle.mp3 */,
+				295A6E5A226100BC00EA474B /* Rupee.mp3 */,
+				295A6E58226100B800EA474B /* Hey.mp3 */,
+				295A6E56226100B300EA474B /* GameOver.mp3 */,
+				295A6E54226100AE00EA474B /* Bgmusic.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -192,17 +186,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				295A6E57226100B300EA474B /* GameOver.mp3 in Resources */,
 				F577B3911CB81F840005E827 /* GameScene.sks in Resources */,
-				295A6E372260FCD400EA474B /* Sparkle.mp3 in Resources */,
-				295A6E312260FCC600EA474B /* Bgmusic.mp3 in Resources */,
+				295A6E5B226100BC00EA474B /* Rupee.mp3 in Resources */,
+				295A6E632261018A00EA474B /* Win.mp3 in Resources */,
 				F5B9A21F1CC1392A000D5BC7 /* BallTrail.sks in Resources */,
-				295A6E402260FCE900EA474B /* GameOver.mp3 in Resources */,
-				295A6E3A2260FCE000EA474B /* Hey.mp3 in Resources */,
+				295A6E59226100B800EA474B /* Hey.mp3 in Resources */,
+				295A6E55226100AE00EA474B /* Bgmusic.mp3 in Resources */,
 				F577B39D1CB81F840005E827 /* LaunchScreen.storyboard in Resources */,
-				295A6E342260FCD000EA474B /* Rupee.mp3 in Resources */,
 				F577B39A1CB81F840005E827 /* Assets.xcassets in Resources */,
 				F5B9A2201CC1392A000D5BC7 /* BrokenPlatform.sks in Resources */,
-				295A6E3D2260FCE400EA474B /* Win.mp3 in Resources */,
+				295A6E5D226100C200EA474B /* Sparkle.mp3 in Resources */,
 				F577B3981CB81F840005E827 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,66 +220,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		295A6E332260FCC600EA474B /* Bgmusic.mp3 */ = {
-			isa = PBXVariantGroup;
-			children = (
-				295A6E322260FCC600EA474B /* en */,
-				295A6E442260FD0700EA474B /* Base */,
-			);
-			name = Bgmusic.mp3;
-			path = "../../../Adobe/Premiere Pro/13.0";
-			sourceTree = "<group>";
-		};
-		295A6E362260FCD000EA474B /* Rupee.mp3 */ = {
-			isa = PBXVariantGroup;
-			children = (
-				295A6E352260FCD000EA474B /* en */,
-				295A6E452260FD0900EA474B /* Base */,
-			);
-			name = Rupee.mp3;
-			path = "../../../Adobe/Premiere Pro/13.0";
-			sourceTree = "<group>";
-		};
-		295A6E392260FCD400EA474B /* Sparkle.mp3 */ = {
-			isa = PBXVariantGroup;
-			children = (
-				295A6E382260FCD400EA474B /* en */,
-				295A6E462260FD0B00EA474B /* Base */,
-			);
-			name = Sparkle.mp3;
-			path = "../../../Adobe/Premiere Pro/13.0";
-			sourceTree = "<group>";
-		};
-		295A6E3C2260FCE000EA474B /* Hey.mp3 */ = {
-			isa = PBXVariantGroup;
-			children = (
-				295A6E3B2260FCE000EA474B /* en */,
-				295A6E472260FD0D00EA474B /* Base */,
-			);
-			name = Hey.mp3;
-			path = "../../../Adobe/Premiere Pro/13.0";
-			sourceTree = "<group>";
-		};
-		295A6E3F2260FCE400EA474B /* Win.mp3 */ = {
-			isa = PBXVariantGroup;
-			children = (
-				295A6E3E2260FCE400EA474B /* en */,
-				295A6E482260FD1200EA474B /* Base */,
-			);
-			name = Win.mp3;
-			path = ../../../../Downloads;
-			sourceTree = "<group>";
-		};
-		295A6E422260FCE900EA474B /* GameOver.mp3 */ = {
-			isa = PBXVariantGroup;
-			children = (
-				295A6E412260FCE900EA474B /* en */,
-				295A6E432260FD0400EA474B /* Base */,
-			);
-			name = GameOver.mp3;
-			path = "../../../Adobe/Premiere Pro/13.0";
-			sourceTree = "<group>";
-		};
 		F577B3961CB81F840005E827 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
